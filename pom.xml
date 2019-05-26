@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.challenge</groupId>
-	<artifactId>weatherSearch</artifactId>
+	<artifactId>weather-search</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>weatherSearch</name>
 	<description>Demo project for Spring Boot</description>

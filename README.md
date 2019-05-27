@@ -8,9 +8,10 @@ The search is done by city by means of a simple html form with the city name as 
 ### Versioning
 	-1.0.0
 	
+	Last Modification Date: 5/27/2019 by Erick García Ramírez
+	
 ### TODO
 
-  - Set up the proper validations to constraint the search just to London and Hong Kong
   - Increase the code coverage.
 
 ## Built

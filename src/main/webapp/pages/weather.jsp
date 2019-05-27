@@ -18,7 +18,7 @@
           action="/weather" modelAttribute="city">
               <form:label path="name">Search Weather for: </form:label>
               <form:input path="name"/>
-              <form:errors path="name" cssClass="error"/><br><br> 
+              <form:errors path="name" cssClass="error"/> 
                     
               <input type="submit" value="Submit"/>
           

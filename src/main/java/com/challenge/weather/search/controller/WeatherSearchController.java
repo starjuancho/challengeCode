@@ -1,13 +1,13 @@
 package com.challenge.weather.search.controller;
 
-import com.challenge.weather.search.model.City;
+import com.challenge.weather.search.constants.Constants;
 import com.challenge.weather.search.service.WeatherSearchService;
+import com.challenge.weather.search.view.City;
 import com.challenge.weather.search.view.CityWeather;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,7 +21,6 @@ import javax.validation.Valid;
  *
  */
 @Controller
-@Validated
 public class WeatherSearchController {
 
   /**
@@ -30,9 +29,6 @@ public class WeatherSearchController {
   @Autowired
   WeatherSearchService weatherSearchService;
 
-
-  // TODO to make the validator work so it only accepts London and Hong Kong, by now it accepts
-  // any city.
   /**
    * entry point to display the initial page.
    * 
@@ -43,7 +39,7 @@ public class WeatherSearchController {
 
     ModelAndView mv = new ModelAndView();
     mv.addObject("city", new City());
-    mv.setViewName("weather");
+    mv.setViewName(Constants.INITIAL_PAGE);
     return mv;
   }
 
@@ -61,11 +57,14 @@ public class WeatherSearchController {
   public ModelAndView submit(@Valid @ModelAttribute("city") City city, BindingResult result,
       ModelMap model) {
 
+    if (result.hasErrors()) {
+      return new ModelAndView(Constants.INITIAL_PAGE);
+    }
     model.addAttribute("name", city.getName());
     ModelAndView mv = new ModelAndView();
     CityWeather cw = weatherSearchService.getWeatherInfo(city.getName());
     mv.addObject("cityWeather", cw);
-    mv.setViewName("weather");
+    mv.setViewName(Constants.INITIAL_PAGE);
     return mv;
   }
 

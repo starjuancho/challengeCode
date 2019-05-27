@@ -54,10 +54,22 @@ you can also execute the jar directly in case that you were unable to execute th
 Or from STS right click on the project -> Run As -> Spring Boot App
 for Eclipse right click on the project -> Run As -> Java Application
 
+### Reporting
+
+To verify the quality code reports in terms of checkstyle, bugs, PMD and coverage. Execute the following:
+
+```console
+	$ mvn clean install site -Pdevelopment_reporting
+```
+
+After the execution enter to the target folder and open the index.html page. That includes the reports mentioned as 'Project Reports'
+
 ### Up and running
 
 Open your browser and search for http://localhost:8080/weather. A simple form will be displayed with an input box so you can type the city of your preference.
 
 Type any city you wish. Click Submit and the weather information will be displayed.
+
+
 
 

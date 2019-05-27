@@ -1,8 +1,12 @@
 package com.challenge.weather.search.view;
 
-import java.time.LocalDate;
+
 import lombok.Getter;
 import lombok.Setter;
+
+import java.time.LocalDate;
+
+
 
 /**
  * POJO class used to show information in the static content.

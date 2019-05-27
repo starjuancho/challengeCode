@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriTemplate;
+
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URLDecoder;
@@ -51,8 +52,8 @@ public class OpenWeatherClientImpl implements OpenWeatherClient {
         String response = "Open Weather Response:" + cw.getBody().toString();
         log.info(response);
       }
-    } catch (UnsupportedEncodingException e) {
-      log.error(e.getMessage());
+    } catch (UnsupportedEncodingException ex) {
+      log.error(ex.getMessage());
     }
     return cw.getBody();
   }

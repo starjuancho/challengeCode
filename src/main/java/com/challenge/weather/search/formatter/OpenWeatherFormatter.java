@@ -3,6 +3,7 @@ package com.challenge.weather.search.formatter;
 import com.challenge.weather.search.client.model.CurrentWeather;
 import com.challenge.weather.search.util.Utility;
 import com.challenge.weather.search.view.CityWeather;
+
 import java.time.LocalDate;
 
 /**

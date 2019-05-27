@@ -16,6 +16,11 @@ import com.challenge.weather.search.constants.ConstantsTests;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Test class for testing the functionality of WeatherSearchServiceImpl class.
+ * @author Erick Garcia
+ *
+ */
 @RunWith(SpringRunner.class)
 public class WeatherSearchServiceImplTest {
 

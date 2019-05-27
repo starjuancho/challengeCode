@@ -10,6 +10,6 @@ import com.challenge.weather.search.view.CityWeather;
  */
 public interface WeatherSearchService {
 
-  public CityWeather getWeatherInfo(String city);
+  CityWeather getWeatherInfo(String city);
 
 }

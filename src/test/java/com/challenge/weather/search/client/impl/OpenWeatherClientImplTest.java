@@ -12,6 +12,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 import com.challenge.weather.search.client.model.CurrentWeather;
 
+/**
+ * Test class for testing the functionality of OpenWeatherClientImpl class.
+ * @author Erick Garcia
+ *
+ */
 @RunWith(SpringRunner.class)
 public class OpenWeatherClientImplTest {
 

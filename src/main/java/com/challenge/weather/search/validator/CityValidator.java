@@ -1,6 +1,7 @@
 package com.challenge.weather.search.validator;
 
 import org.springframework.stereotype.Component;
+
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 

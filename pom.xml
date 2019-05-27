@@ -117,6 +117,7 @@
 								<exclude>**/*Application*.*</exclude>	
 								<exclude>**/*constant/**/*</exclude>
 								<exclude>**/*domain/**/*</exclude>
+								<exclude>**/*view/**/*</exclude>
 							</excludes>
 						</configuration>
 						<reportSets>

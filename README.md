@@ -12,7 +12,7 @@ The search is done by city by means of a simple html form with the city name as 
 	
 ### TODO
 
-  - Increase the code coverage.
+  - Work on externalizing certein fixed values and messages in the application.
 
 ## Built
 

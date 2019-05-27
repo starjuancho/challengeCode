@@ -24,7 +24,7 @@ You need to have installed:
 
  - Java 1.8
  - Maven 3.3
- - IDE 
+ - IDE (STS, Eclipse, Intellij) 
  - lombok installed on IDE
  
  

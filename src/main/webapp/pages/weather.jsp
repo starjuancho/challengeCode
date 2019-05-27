@@ -13,7 +13,7 @@
 </div>
 
 
- <h3>Welcome to weather search, Enter The city name</h3>
+ <h3>Enter The city name</h3>
         <form:form method="POST"
           action="/weather" modelAttribute="city">
               <form:label path="name">Search Weather for: </form:label>

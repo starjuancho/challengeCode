@@ -1,6 +1,7 @@
 package com.challenge.weather.search.util;
 
 import com.challenge.weather.search.constants.Constants;
+
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.LocalTime;

@@ -19,7 +19,7 @@
               <form:label path="name">Search Weather for: </form:label>
               <form:input path="name"/>
               <form:errors path="name" cssClass="error"/> 
-                    
+              <br></br>
               <input type="submit" value="Submit"/>
           
         </form:form>

@@ -3,7 +3,7 @@ package com.challenge.weather.search.client;
 import com.challenge.weather.search.client.model.CurrentWeather;
 
 /**
- * Interface that contains the method signatures to consume OpenWeather API;
+ * Interface that contains the method signatures to consume OpenWeather API.
  * 
  * @author Erick Garcia
  *
@@ -11,6 +11,6 @@ import com.challenge.weather.search.client.model.CurrentWeather;
 public interface OpenWeatherClient {
 
 
-  public CurrentWeather getWeather(String city);
+  CurrentWeather getWeather(String city);
 
 }

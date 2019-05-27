@@ -1,7 +1,9 @@
 package com.challenge.weather.search.client.model;
 
-import java.util.List;
 import lombok.Data;
+
+import java.util.List;
+
 
 @Data
 public class CurrentWeather {

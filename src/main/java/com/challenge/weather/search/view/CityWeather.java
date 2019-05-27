@@ -1,7 +1,8 @@
 package com.challenge.weather.search.view;
 
 import java.time.LocalDate;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * POJO class used to show information in the static content.
@@ -9,7 +10,8 @@ import lombok.Data;
  * @author Erick Garcia
  *
  */
-@Data
+@Getter
+@Setter
 public class CityWeather {
 
   LocalDate date;

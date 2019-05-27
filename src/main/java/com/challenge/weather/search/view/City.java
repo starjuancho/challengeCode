@@ -1,6 +1,6 @@
-package com.challenge.weather.search.model;
+package com.challenge.weather.search.view;
 
-import javax.validation.constraints.NotBlank;
+import com.challenge.weather.search.validator.CityConstraint;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,7 +14,7 @@ import lombok.Setter;
 @Setter
 public class City {
 
-  @NotBlank
+  @CityConstraint
   private String name;
 
 }

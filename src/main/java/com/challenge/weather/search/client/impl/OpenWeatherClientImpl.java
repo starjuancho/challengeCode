@@ -43,9 +43,8 @@ public class OpenWeatherClientImpl implements OpenWeatherClient {
 
     restTemplate = new RestTemplate();
     URI expanded = new UriTemplate(Constants.URI).expand(city, Constants.APPID);
-    String url;
     try {
-      url = URLDecoder.decode(expanded.toString(), Constants.UTF8EN);
+      String url = URLDecoder.decode(expanded.toString(), Constants.UTF8EN);
       ResponseEntity<CurrentWeather> cw = restTemplate.getForEntity(url, CurrentWeather.class);
       if (cw.getBody() != null) {
         String response = "Open Weather Response:" + cw.getBody().toString();

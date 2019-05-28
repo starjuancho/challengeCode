@@ -42,20 +42,20 @@ public class OpenWeatherClientImpl implements OpenWeatherClient {
   public CurrentWeather getWeather(String city) {
 
     restTemplate = new RestTemplate();
-    ResponseEntity<CurrentWeather> cw = new ResponseEntity<>(HttpStatus.OK);
     URI expanded = new UriTemplate(Constants.URI).expand(city, Constants.APPID);
     String url;
     try {
       url = URLDecoder.decode(expanded.toString(), Constants.UTF8EN);
-      cw = restTemplate.getForEntity(url, CurrentWeather.class);
+      ResponseEntity<CurrentWeather> cw = restTemplate.getForEntity(url, CurrentWeather.class);
       if (cw.getBody() != null) {
         String response = "Open Weather Response:" + cw.getBody().toString();
         log.info(response);
+        return cw.getBody();
       }
     } catch (UnsupportedEncodingException ex) {
       log.error(ex.getMessage());
     }
-    return cw.getBody();
+    return new CurrentWeather();
   }
 
 }

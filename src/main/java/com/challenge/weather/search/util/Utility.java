@@ -1,11 +1,15 @@
 package com.challenge.weather.search.util;
 
+import com.challenge.weather.search.client.model.CurrentWeather;
+import com.challenge.weather.search.client.model.MainInfo;
+import com.challenge.weather.search.client.model.Sys;
+import com.challenge.weather.search.client.model.Weather;
 import com.challenge.weather.search.constants.Constants;
-
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Optional;
 import java.util.TimeZone;
 
 /**
@@ -65,6 +69,48 @@ public class Utility {
   public static LocalDateTime getDateTimeFromTimestamp(Long timestamp, Long zoneId) {
     return LocalDateTime.ofInstant(Instant.ofEpochSecond(timestamp + zoneId),
         TimeZone.getTimeZone(Constants.TIMEZONE).toZoneId());
+  }
+  
+  /**
+   * Method that validates the current status of description field in Weather reference.
+   * @param cw of type CurrentWeather
+   * @return boolean value.
+   */
+  public static boolean validateDescription (CurrentWeather cw) {
+    Optional<CurrentWeather> cwo = Optional.ofNullable(cw);
+    if (cwo.filter(p -> !p.getWeather().isEmpty()).isPresent()) {
+      Optional<Weather> weat = Optional.of(cwo.get().getWeather().get(0));
+      return weat.get().getDescription() != null;
+    }
+    return false;    
+  }
+  
+  public static boolean validateTemp (CurrentWeather cw) {
+    Optional<MainInfo> cwo = Optional.ofNullable(cw.getMain());
+    if(cwo.isPresent()) {
+      return cwo.get().getTemp() != null;
+    } 
+    return false;
+  }
+  
+  public static boolean validateSunset (CurrentWeather cw) {
+    Optional<Sys> sysInf = getSysInf(cw);
+    if(sysInf.isPresent()) {
+      return sysInf.get().getSunset() != null;
+    } 
+    return false;
+  }
+  
+  public static boolean validateSunrise (CurrentWeather cw) {
+    Optional<Sys> sysInf = getSysInf(cw);
+    if(sysInf.isPresent()) {
+      return sysInf.get().getSunrise() != null;
+    } 
+    return false;
+  }
+  
+  public static Optional<Sys> getSysInf(CurrentWeather cw){
+    return Optional.ofNullable(cw.getSys());
   }
 }
 

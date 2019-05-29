@@ -21,8 +21,8 @@ public class CityWeather {
   LocalDate date;
   String city;
   String description;
-  Double temperatureC;
-  Double temperatureF;
+  String temperatureC;
+  String temperatureF;
   String sunriseTime;
   String sunsetTime;
 

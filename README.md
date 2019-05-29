@@ -8,11 +8,10 @@ The search is done by city by means of a simple html form with the city name as 
 ### Versioning
 	-1.0.0
 	
-	Last Modification Date: 5/27/2019 by Erick García Ramírez
+	Last Modification Date: 5/29/2019 by Erick García Ramírez
 	
 ### TODO
 
-  - Work on externalizing certein fixed values and messages in the application.
 
 ## Built
 

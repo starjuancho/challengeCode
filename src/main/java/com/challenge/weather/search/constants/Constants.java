@@ -15,6 +15,8 @@ public class Constants {
   public static final String TIMEZONE = "UTC";
 
   public static final String INITIAL_PAGE = "weather";
+  
+  public static final String EMPTY = "";
 
 
 

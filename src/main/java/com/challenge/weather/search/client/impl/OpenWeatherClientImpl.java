@@ -5,15 +5,14 @@ import com.challenge.weather.search.client.model.CurrentWeather;
 import com.challenge.weather.search.constants.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriTemplate;
-
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URLDecoder;
+import java.util.Optional;
 
 
 /**
@@ -46,10 +45,11 @@ public class OpenWeatherClientImpl implements OpenWeatherClient {
     try {
       String url = URLDecoder.decode(expanded.toString(), Constants.UTF8EN);
       ResponseEntity<CurrentWeather> cw = restTemplate.getForEntity(url, CurrentWeather.class);
-      if (cw.getBody() != null) {
+      Optional<CurrentWeather> body = Optional.ofNullable(cw.getBody());
+      if (body.isPresent()) {
         String response = "Open Weather Response:" + cw.getBody().toString();
         log.info(response);
-        return cw.getBody();
+        return body.get();
       }
     } catch (UnsupportedEncodingException ex) {
       log.error(ex.getMessage());

@@ -1,6 +1,7 @@
 package com.challenge.weather.search.formatter;
 
 import com.challenge.weather.search.client.model.CurrentWeather;
+import com.challenge.weather.search.constants.Constants;
 import com.challenge.weather.search.util.Utility;
 import com.challenge.weather.search.view.CityWeather;
 
@@ -29,14 +30,18 @@ public class OpenWeatherFormatter {
     cw.setCity(currentWeather.getName());
     LocalDate date = LocalDate.now();
     cw.setDate(date);
-    cw.setDescription(currentWeather.getWeather().get(0).getDescription());
-    cw.setTemperatureF(Utility.convertKelvinToFahr(currentWeather.getMain().getTemp()));
-    cw.setTemperatureC(Utility.convertKelvinToCelsius(currentWeather.getMain().getTemp()));
-    cw.setSunriseTime(Utility.convertTimeStampToLocalTime(currentWeather.getSys().getSunrise(),
-        currentWeather.getTimezone()));
-    cw.setSunsetTime(Utility.convertTimeStampToLocalTime(currentWeather.getSys().getSunset(),
-        currentWeather.getTimezone()));
-
+    cw.setDescription(Utility.validateDescription(currentWeather)?currentWeather
+        .getWeather().get(0).getDescription() : Constants.EMPTY);
+    cw.setTemperatureF(Utility.validateTemp(currentWeather) ? Utility
+        .convertKelvinToFahr(currentWeather.getMain().getTemp()).toString() : Constants.EMPTY);
+    cw.setTemperatureC(Utility.validateTemp(currentWeather) ? Utility
+        .convertKelvinToCelsius(currentWeather.getMain().getTemp()).toString() : Constants.EMPTY);
+    cw.setSunriseTime(Utility.validateSunrise(currentWeather) ? Utility
+        .convertTimeStampToLocalTime(currentWeather.getSys().getSunrise(),
+        currentWeather.getTimezone()) : Constants.EMPTY);
+    cw.setSunsetTime(Utility.validateSunset(currentWeather) ? Utility
+        .convertTimeStampToLocalTime(currentWeather.getSys().getSunset(),
+        currentWeather.getTimezone()) : Constants.EMPTY);
     return cw;
 
   }

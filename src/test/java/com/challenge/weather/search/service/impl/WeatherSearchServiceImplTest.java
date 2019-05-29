@@ -1,5 +1,13 @@
 package com.challenge.weather.search.service.impl;
 
+import static org.junit.Assert.assertNotNull;
+import com.challenge.weather.search.client.OpenWeatherClient;
+import com.challenge.weather.search.client.model.CurrentWeather;
+import com.challenge.weather.search.client.model.MainInfo;
+import com.challenge.weather.search.client.model.Sys;
+import com.challenge.weather.search.client.model.Weather;
+import com.challenge.weather.search.constants.ConstantsTests;
+import com.challenge.weather.search.view.CityWeather;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,12 +15,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.test.context.junit4.SpringRunner;
-import com.challenge.weather.search.client.OpenWeatherClient;
-import com.challenge.weather.search.client.model.CurrentWeather;
-import com.challenge.weather.search.client.model.MainInfo;
-import com.challenge.weather.search.client.model.Sys;
-import com.challenge.weather.search.client.model.Weather;
-import com.challenge.weather.search.constants.ConstantsTests;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,6 +54,7 @@ public class WeatherSearchServiceImplTest {
     sys.setSunset(Long.valueOf(1558954865));
     currentWeather.setSys(sys);
     currentWeather.setTimezone(Long.valueOf(28800));
+    currentWeather.setName("London");
 
 
   }
@@ -62,7 +65,16 @@ public class WeatherSearchServiceImplTest {
 
     Mockito.when(openWeatherClient.getWeather((Mockito.anyString()))).thenReturn(currentWeather);
 
-    weatherSearchServiceImpl.getWeatherInfo(ConstantsTests.CITY);
+    CityWeather cw = weatherSearchServiceImpl.getWeatherInfo(ConstantsTests.CITY);
+    
+    assertNotNull(cw.getCity());
+    assertNotNull(cw.getDate());
+    assertNotNull(cw.getDescription());
+    assertNotNull(cw.getSunriseTime());
+    assertNotNull(cw.getSunsetTime());
+    assertNotNull(cw.getTemperatureC());
+    assertNotNull(cw.getTemperatureF());
+    
   }
 
 }
